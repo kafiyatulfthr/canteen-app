@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Data Entry</title>
+{% endblock %}
+
+{% block body %}
+<div class="container"><br><br><br><br>
+    <div class="card form-control">
+        <div class="card-body p-3">
+            <div class="row">
+                <div class="col-6">
+                    <form action="/add" method="POST">
+                        <h4>Input New Menu</h4>
+                            <label for="content">Menu</label><br>
+                                <input class="form-control" type="text" name="content" id="content" required>
+                                <br>
+                            <label for="timing">Time</label><br>
+                                <input class="form-control" type="text" name="timing" id="timing" required>
+                                <br>
+                                <input type="range" id="score" name="score" min="0" max="5" value="0" hidden>
+                                <br>
+                                <input type="radio" name="status" value="Active" checked>
+                            <label>Active</label>
+                                <input type="radio" name="status" value="Non Active">
+                            <label>Non Active</label>
+                                <br><br>
+                                <input class="btn bg-gradient-dark btn-outline-dark" type="submit" value="Add menu">
+                    </form>
+                </div>
+                <div class="col-6">
+                    <form  method="POST" action="/uploadfiles" enctype="multipart/form-data">
+                        <h4>Or Upload CSV File</h4><br>
+                        <input class="btn" type='file' name='file'>
+                        <p><input class="btn bg-gradient-dark btn-outline-dark" type='submit' value='Upload'></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
